@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
       Typed.new('.element', {
-        strings: ["Responsive Websites.","Web Applications.","User Interfaces." ],
+        strings: ["User Interfaces." ,"Responsive Websites.","Web Applications."],
         typeSpeed: 50,
         backDelay: 750,
         loop: true,
