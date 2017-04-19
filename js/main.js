@@ -7,4 +7,6 @@ document.addEventListener('DOMContentLoaded', function(){
         backSpeed: 80,
         showCursor: false,
       });
+    
+    
   });

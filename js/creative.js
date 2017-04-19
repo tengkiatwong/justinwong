@@ -37,11 +37,17 @@
     }, 200);
     sr.reveal('.sr-button', {
         duration: 1000,
+        scale: 0.8,
         delay: 200
     });
     sr.reveal('.sr-contact', {
         duration: 600,
         scale: 0.3,
+        distance: '0px'
+    }, 300);
+    sr.reveal('.sr-chart', {
+        duration: 600,
+        scale: 0.1,
         distance: '0px'
     }, 300);
 
