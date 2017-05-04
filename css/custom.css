@@ -66,6 +66,11 @@
     font-weight:700
 }
 
+.sidepad {
+        padding-left:1em;
+    padding-right:1em;
+}
+
 .company-desc {
     text-align:left;
     padding-top:2em;
