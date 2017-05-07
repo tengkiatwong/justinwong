@@ -78,7 +78,7 @@
      sr.reveal('.portrait', {
         duration: 1000,
         scale: 0.8,
-        delay: 2800,
+        delay: 4800,
         reset:true
     });
     
