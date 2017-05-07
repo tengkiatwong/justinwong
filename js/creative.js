@@ -26,7 +26,20 @@
         offset: {
             top: 100
         }
-    })
+    });
+    
+    
+//    var bar = new ProgressBar.Line(progressbar, {
+//      strokeWidth: 4,
+////      easing: 'easeInOut',
+//      duration: 3000,
+//      color: '#03af31',
+//      trailColor: '#ffffff',
+//      trailWidth: 4,
+//      svgStyle: {width: '66%', height: '50%'}
+//    });
+    
+    
 
     // Initialize and Configure Scroll Reveal Animation
     window.sr = ScrollReveal();
@@ -40,6 +53,35 @@
         scale: 0.8,
         delay: 200
     });
+    sr.reveal('.sr-hero1', {
+        duration: 1000,
+        scale: 0.8,
+        delay: 200,
+        reset: true,
+        afterReveal: function (domEl) {
+            bar.animate(1.0);
+            
+        },
+    });
+    sr.reveal('.sr-hero2', {
+        duration: 1000,
+        scale: 0.8,
+        delay: 1200,
+        reset:true
+    });
+    sr.reveal('.sr-hero3', {
+        duration: 1000,
+        scale: 0.8,
+        delay: 2200,
+        reset:true
+    });
+     sr.reveal('.portrait', {
+        duration: 1000,
+        scale: 0.8,
+        delay: 2800,
+        reset:true
+    });
+    
     sr.reveal('.sr-contact', {
         duration: 600,
         scale: 0.3,
