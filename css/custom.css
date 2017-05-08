@@ -126,7 +126,8 @@
 
 .project-img {
     height:15em;
-    border-radius:0.5em
+    border-radius:0.5em;
+    padding-top:1em;
 }
 
 .project-desc {
