@@ -58,10 +58,6 @@
         scale: 0.8,
         delay: 200,
         reset: true,
-        afterReveal: function (domEl) {
-            bar.animate(1.0);
-            
-        },
     });
     sr.reveal('.sr-hero2', {
         duration: 1000,
