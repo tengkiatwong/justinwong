@@ -16,12 +16,24 @@
     color: white;
 }
 
+.skillIcon {
+    height: 3em;
+}
+
 .skillItem {
     font-size: 1.8em;
     min-height: 100%;
 }
 
+.paraText {
+    padding-top:2em;
+    padding-bottom:2em
+}
 
+.profile-round {
+    border-radius:50%;
+    height:4em
+}
 
 #progressbar {
     width: 100%;
@@ -86,6 +98,10 @@
     padding-top:0em
 }
 
+#workedwith {
+    background-color:#f4f4f4
+}
+
 .worked-with-clients {
     padding-left:0em;
     padding-bottom:4em;
@@ -146,4 +162,13 @@
     color:#93a4aa;
     line-height:1.7em;
     font-weight:200
+}
+
+#contact {
+    background-color:#ffc94c
+}
+
+.footer-bar {
+    background-color:#2A3A3F;
+    height:2em
 }
