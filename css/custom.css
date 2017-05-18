@@ -20,8 +20,16 @@
     color:black
 }
 
+.section-heading {
+    text-align: center;
+}
+
 .skillIcon {
     height: 3em;
+}
+
+.download-button {
+    margin-top: 2em
 }
 
 .skillItem {

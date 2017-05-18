@@ -3,8 +3,6 @@
 //LandingSection
 var LandingSection = React.createClass({
 	displayName: "Landing Section",
-    
-	updateClass: function updateClass() {},
 	render: function render() {
 		return React.createElement(
    "div",
@@ -369,6 +367,94 @@ var Experience = React.createClass({
 	}
 });
 
+//Personal Projects
+var Projects = React.createClass({
+	displayName: "Landing Section",
+    
+	render: function render() {
+		return React.createElement(
+    "div",
+    null,
+    React.createElement(
+        "h2",
+        { styles: "text-align:center", "className": "section-heading" },
+        "Personal Projects"
+    ),
+    React.createElement("hr", { "className": "primary" }),
+    React.createElement(
+        "p",
+        { "className": "text-center", styles: "font-weight:200" },
+        "When I'm not working for startups, I'm working on digital products."
+    ),
+    React.createElement(
+        "div",
+        { "className": "container", styles: "padding-top:2em" },
+        React.createElement(
+            "div",
+            { "className": "row text-center" },
+            React.createElement(
+                "div",
+                { "className": "col-md-4" },
+                React.createElement("img", { src: "img/Eatfficient_Mobile.png", "className": "project-img", styles: "height:15em" }),
+                React.createElement(
+                    "div",
+                    { "className": "project-desc" },
+                    "Eatfficient Mobile is a tablet ordering system built on Ionic, a hybrid mobile application framework. It allows diners to order and pay for their meals through the app using paypal or credit card."
+                ),
+                React.createElement("br", null),
+                React.createElement(
+                    "a",
+                    { href: "https://github.com/tengkiatwong/Eatfficient_Mobile", "className": "btn btn-primary btn-xl page-scroll find-out sr-button black-text", target: "_blank" },
+                    "GitHub"
+                )
+            ),
+            React.createElement(
+                "div",
+                { "className": "col-md-4" },
+                React.createElement("img", { src: "img/EatfficientThumb.png", "className": "project-img", styles: "height:15em" }),
+                React.createElement(
+                    "div",
+                    { "className": "project-desc" },
+                    "Eatfficient is a complete Enterprise F&B system inclduing a mobile app that leverages on location tracking technologies and analytics to create an amazing dining experience."
+                ),
+                React.createElement("br", null),
+                React.createElement(
+                    "a",
+                    { href: "https://github.com/tengkiatwong/Eatfficient", "className": "btn btn-primary btn-xl page-scroll find-out sr-button black-text", target: "_blank" },
+                    "GitHub"
+                )
+            ),
+            React.createElement(
+                "div",
+                { "className": "col-md-4" },
+                React.createElement("img", { src: "img/teasaurusFinal.png", "className": "project-img", styles: "height:15em" }),
+                React.createElement(
+                    "div",
+                    { "className": "project-desc" },
+                    "Teasaurus is an E-Commerce website built on the wordpress CMS using PHP and MySQL. It sells tea sourced from Sri Lanka to customers through an online store."
+                ),
+                React.createElement("br", null),
+                React.createElement(
+                    "a",
+                    { href: "https://github.com/tengkiatwong/teasaurus", "className": "btn btn-primary btn-xl page-scroll find-out sr-button black-text", target: "_blank" },
+                    "GitHub"
+                )
+            )
+        ),
+        React.createElement(
+            "div",
+            { "className": "text-center", styles: "padding-top:4em" },
+            React.createElement(
+                "a",
+                { href: "img/Resume_Justin_TengKiat_Wong.pdf", "className": "btn btn-primary btn-xl page-scroll find-out sr-button black-text download-button", download: true },
+                "Download My Resume"
+            )
+        )
+    )
+);
+
+	}
+});
 
 
 React.render(React.createElement(LandingSection, null), document.getElementById('impl'));
@@ -376,3 +462,4 @@ React.render(React.createElement(AboutMe, null), document.getElementById('AboutM
 React.render(React.createElement(Expertise, null), document.getElementById('Expertise'));
 React.render(React.createElement(Parallax, null), document.getElementById('Parallax'));
 React.render(React.createElement(Experience, null), document.getElementById('Experience'));
+React.render(React.createElement(Projects, null), document.getElementById('Projects'));
