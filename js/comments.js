@@ -12,15 +12,6 @@ var writeComment = function(id,comment,user,date){
 }
 
 var comments = [];
-database.on('value', function(snapshot) {
-    var allComments = snapshot.val();
-    snapshot.forEach(function(childSnapShot){
-       comments.unshift(childSnapShot.val()); 
-    }).then(console.log("all done!"));
-    console.log(comments);
-//    CommentsBox.setState({ data: comments });
-});
-
 
 // Comments Box
 
@@ -245,7 +236,6 @@ var CommentForm = React.createClass({
                 
 //wait for comments to finish downloading before generating comments box
 database.on('value', function(snapshot) {
-    var allComments = snapshot.val();
     snapshot.forEach(function(childSnapShot){
        comments.unshift(childSnapShot.val()); 
     }).then(React.render(React.createElement(CommentsBox, null), document.getElementById('CommentsBox')));
