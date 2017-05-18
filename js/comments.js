@@ -122,7 +122,7 @@ var CommentItem = React.createClass({
 		return React.createElement(
 			"div",
 			{ className: classes },
-            React.createElement("img",{className:"comment-picture",src:"/img/profile-placeholder.jpg"}),
+            React.createElement("img",{className:"comment-picture",src:"img/profile-placeholder.jpg"}),
 			React.createElement("div",{className:"user-name"},this.props.user),
             React.createElement("span",{className:"date-posted"},this.props.date),
             React.createElement("div",{className:"user-comment"},this.props.task),
