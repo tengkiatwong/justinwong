@@ -1,4 +1,26 @@
 "use strict";
+//initialize FireBase
+ var database = firebase.database().ref('comments');
+
+var writeComment = function(id,comment,user,date){
+    database.push({
+        id:id,
+        comment: comment,
+        user:user,
+        date:date
+    });
+}
+
+var comments = [];
+database.on('value', function(snapshot) {
+    var allComments = snapshot.val();
+    snapshot.forEach(function(childSnapShot){
+       comments.unshift(childSnapShot.val()); 
+    }).then(console.log("all done!"));
+    console.log(comments);
+//    CommentsBox.setState({ data: comments });
+});
+
 
 // Comments Box
 
@@ -7,7 +29,8 @@ var CommentsBox = React.createClass({
 
 	getInitialState: function getInitialState() {
 		return {
-			data: [{ "id": "00001", "task": "That's great work Justin! I look forward to more from you in the future", "user": "Elon Musk","date":"05/04/2017" }, { "id": "00002", "task": "Eat breakfast", "user": "Benjamin Ong","date":"05/04/2017" }, { "id": "00003", "task": "Sanitize,animate,FireBase,AntiSpam,load-previous-posts", "user": "Brad Pitt","date":"05/04/2017" }]
+//			data: [{ "id": "00001", "task": "That's great work Justin! I look forward to more from you in the future", "user": "Elon Musk","date":"05/04/2017" }, { "id": "00002", "task": "Eat breakfast", "user": "Benjamin Ong","date":"05/04/2017" }, { "id": "00003", "task": "Sanitize,animate,FireBase,AntiSpam,load-previous-posts", "user": "Brad Pitt","date":"05/04/2017" }]
+            data: comments
 		};
 	},
     
@@ -33,7 +56,6 @@ var CommentsBox = React.createClass({
 		var data = this.state.data;
 		var id = this.generateId().toString();
 		var complete = 'false';
-        
         var getDate = function(){
             var today = new Date();
             var dd = today.getDate();
@@ -53,9 +75,9 @@ var CommentsBox = React.createClass({
         };
         
         var dateToday = getDate();
-//		data = data.concat([insertNew]);
-        data.unshift({ id: id, task: comment, user: user,date: dateToday });
-		this.setState({ data: data });
+        writeComment(id,comment,user,dateToday);
+//        data.unshift({ id: id, comment: comment, user: user,date: dateToday });
+//		this.setState({ data: data });
 	},
     
 	handleToggleComplete: function handleToggleComplete(nodeId) {
@@ -97,7 +119,7 @@ var CommentList = React.createClass({
 	render: function render() {
         // find out what this.props.data.map(function(listItem){},this) means
 		var listNodes = this.props.data.map(function (listItem) {
-			return React.createElement(CommentItem, { key: listItem.id, nodeId: listItem.id, task: listItem.task, user: listItem.user,date:listItem.date, removeNode: this.removeNode});
+			return React.createElement(CommentItem, { key: listItem.id, nodeId: listItem.id, comment: listItem.comment, user: listItem.user,date:listItem.date, removeNode: this.removeNode});
 		}, this);
 		return React.createElement(
 			"div",
@@ -125,7 +147,7 @@ var CommentItem = React.createClass({
             React.createElement("img",{className:"comment-picture",src:"img/profile-placeholder.jpg"}),
 			React.createElement("div",{className:"user-name"},this.props.user),
             React.createElement("span",{className:"date-posted"},this.props.date),
-            React.createElement("div",{className:"user-comment"},this.props.task),
+            React.createElement("div",{className:"user-comment"},this.props.comment),
 		);
 
 	}
@@ -188,14 +210,14 @@ var CommentForm = React.createClass({
 						React.createElement(
 							"div",
 							{ className: "col-md-3 name-input" },
-							React.createElement("input", { type: "text", id: "task", ref: "user", className: "form-control", placeholder: "Name" })
+							React.createElement("input", { type: "text", id: "comment", ref: "user", className: "form-control", placeholder: "Name" })
 						),
                         
                         //input for Comment
 						React.createElement(
 							"div",
 							{ className: "col-md-12" },
-							React.createElement("input", { type: "text", id: "task", ref: "comment", className: "form-control", placeholder: "Write your comment here",onChange:this.handleChange.bind(this) })
+							React.createElement("input", { type: "text", id: "comment", ref: "comment", className: "form-control", placeholder: "Write your comment here",onChange:this.handleChange.bind(this) })
 						),
 					),
                     
@@ -218,5 +240,16 @@ var CommentForm = React.createClass({
 		);
 	}
 });
-
-React.render(React.createElement(CommentsBox, null), document.getElementById('CommentsBox'));
+                
+                
+                
+//wait for comments to finish downloading before generating comments box
+database.on('value', function(snapshot) {
+    var allComments = snapshot.val();
+    snapshot.forEach(function(childSnapShot){
+       comments.unshift(childSnapShot.val()); 
+    }).then(React.render(React.createElement(CommentsBox, null), document.getElementById('CommentsBox')));
+    console.log(comments);
+//    CommentsBox.setState({ data: comments });
+});
+//React.render(React.createElement(CommentsBox, null), document.getElementById('CommentsBox'));
