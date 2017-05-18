@@ -16,6 +16,10 @@
     color: white;
 }
 
+.black-text {
+    color:black
+}
+
 .skillIcon {
     height: 3em;
 }
@@ -64,7 +68,6 @@
 }
 
 .caption span.border {
-  background-color: #111;
   color: #fff;
 /*  padding: 18px;*/
   font-size: 25px;
@@ -167,6 +170,48 @@
 #contact {
     background-color:#ffc94c
 }
+
+
+/* Comment Section */
+.comment-item {
+    margin-bottom: 1.2em;
+    padding-left:1em;
+}
+
+.inputs {
+    padding-bottom: 2em
+}
+
+.comment-picture {
+    width: 4em;
+    float:left;
+    padding-right: 1em;
+}
+
+.user-name {
+    font-weight:600;
+    font-size:1em;
+    padding-bottom: 1.8em;
+    padding-right:1em;
+    display: inline
+}
+
+.date-posted{
+    font-size:0.8em;
+    font-weight:200;
+    color:lightslategrey
+}
+
+
+.name-input{
+    padding-bottom:1em
+}
+
+.submit-button {
+    float:left
+}
+
+
 
 .footer-bar {
     background-color:#2A3A3F;
