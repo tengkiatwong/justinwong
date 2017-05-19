@@ -138,7 +138,7 @@ var CommentItem = React.createClass({
             React.createElement("img",{className:"comment-picture",src:"img/profile-placeholder.jpg"}),
 			React.createElement("div",{className:"user-name"},this.props.user),
             React.createElement("span",{className:"date-posted"},this.props.date),
-            React.createElement("div",{className:"user-comment"},this.props.comment),
+            React.createElement("div",{className:"user-comment"},this.props.comment)
 		);
 
 	}
@@ -209,7 +209,7 @@ var CommentForm = React.createClass({
 							"div",
 							{ className: "col-md-12" },
 							React.createElement("input", { type: "text", id: "comment", ref: "comment", className: "form-control", placeholder: "Write your comment here",onChange:this.handleChange.bind(this) })
-						),
+						)
 					),
                     
                     
@@ -223,8 +223,8 @@ var CommentForm = React.createClass({
 							React.createElement("input", { type: "submit", value: "Comment", className: "btn btn-primary submit-button",disabled:this.state.chars_left < 0 })
 						),
                         React.createElement("div", {className:"character-count pull-right"},"Characters left: "+this.state.chars_left
-                        ),
-					),
+                        )
+					)
                     
 				)
 			)
