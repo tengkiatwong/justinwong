@@ -242,7 +242,7 @@ var Experience = React.createClass({
             { "className": "col-md-5 col-xs-12" },
             React.createElement(
                 "h2",
-                { styles: "text-align:left" },
+                { "className":"align-left" },
                 "Risingreens Technologies"
             ),
             React.createElement(
@@ -313,7 +313,7 @@ var Experience = React.createClass({
             { "className": "col-md-5 col-xs-12" },
             React.createElement(
                 "h2",
-                { styles: "text-align:left" },
+                { "className":"align-left" },
                 "ThunderQuote"
             ),
             React.createElement(

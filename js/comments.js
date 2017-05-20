@@ -20,7 +20,6 @@ var CommentsBox = React.createClass({
 
 	getInitialState: function getInitialState() {
 		return {
-//			data: [{ "id": "00001", "task": "That's great work Justin! I look forward to more from you in the future", "user": "Elon Musk","date":"05/04/2017" }, { "id": "00002", "task": "Eat breakfast", "user": "Benjamin Ong","date":"05/04/2017" }, { "id": "00003", "task": "Sanitize,animate,FireBase,AntiSpam,load-previous-posts", "user": "Brad Pitt","date":"05/04/2017" }]
             data: comments
 		};
 	},
@@ -93,7 +92,7 @@ var CommentsBox = React.createClass({
 				{ className: "vert-offset-top-0" },
 				"Comments:"
 			),
-            React.createElement(CommentForm, { onTaskSubmit: this.handleSubmit }),
+            React.createElement(CommentForm, { onCommentSubmit: this.handleSubmit }),
 			React.createElement(CommentList, { data: this.state.data, removeNode: this.handleNodeRemoval})
 			
 		);
@@ -135,7 +134,7 @@ var CommentItem = React.createClass({
 		return React.createElement(
 			"div",
 			{ className: classes },
-            React.createElement("img",{className:"comment-picture",src:"img/profile-placeholder.jpg"}),
+            React.createElement("img",{className:"comment-picture hidden-xs",src:"img/profile-placeholder.jpg"}),
 			React.createElement("div",{className:"user-name"},this.props.user),
             React.createElement("span",{className:"date-posted"},this.props.date),
             React.createElement("div",{className:"user-comment"},this.props.comment)
@@ -173,7 +172,7 @@ var CommentForm = React.createClass({
 		if (!comment || !user) {
 			return;
 		}
-		this.props.onTaskSubmit(comment,user);
+		this.props.onCommentSubmit(comment,user);
 		React.findDOMNode(this.refs.comment).value = '';
         this.setState({
             chars_left: this.state.max_char
@@ -192,7 +191,7 @@ var CommentForm = React.createClass({
 				{ className: "clearfix" },
 				React.createElement(
 					"form",
-					{ className: "todoForm form-horizontal", onSubmit: this.doSubmit },
+					{ className: "commentsForm form-horizontal", onSubmit: this.doSubmit },
 					React.createElement(
 						"div",
 						{ className: "form-group" },
